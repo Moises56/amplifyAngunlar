@@ -13,6 +13,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public createForm: FormGroup;
   private subscription: Subscription | null = null;
 
+  public isCollapsed = false;
+
   /* declare restaurants variable */
   public restaurants: Array<Restaurant> = [];
 

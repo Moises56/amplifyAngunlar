@@ -1,54 +1,93 @@
 <router-outlet></router-outlet>
 
-<h2>Amplify With Angular</h2>
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top mb-5" id="mainNav">
+  <div class="container">
+      <a class="navbar-brand" href="#page-top">Ignited</a>
+      <!-- <span class="">Ingeniero En Sistemas</span> -->
+      <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed">
+          Menu
+          <!-- <fa-icon [icon]="faBars"></fa-icon> -->
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+          
+      </div>
+  </div>
+</nav>
 
-<h3>Form Auth</h3>
-<amplify-authenticator>
-  <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut"
-  >
-    <h1>Welcome {{ user.username }}!</h1>
-    <button (click)="signOut()">Sign Out</button>
-  </ng-template>
-</amplify-authenticator>
+<h2 class="mt-5 pt-5 text-center">Amplify With Angular</h2>
 
-<br><br>
-
-<h3>Form Restaurant</h3>
-<div class="form-body">
-  <form
-    autocomplete="off"
-    [formGroup]="createForm"
-    (ngSubmit)="onCreate(createForm.value)"
-  >
-    <div>
-      <label>Name: </label>
-      <input type="text" formControlName="name" autocomplete="off" />
-    </div>
-    <div>
-      <label>Description: </label>
-      <input type="text" formControlName="description" autocomplete="off" />
-    </div>
-    <div>
-      <label>City: </label>
-      <input type="text" formControlName="city" autocomplete="off" />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+<div class="container">
+  <h3>Form Auth</h3>
+  <div class="row">
+    <amplify-authenticator>
+      <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+        <h1>Welcome {{ user.username }}!</h1>
+        <button (click)="signOut()">Sign Out</button>
+      </ng-template>
+    </amplify-authenticator>
+  </div>
 </div>
 
-<hr>
-<h2>Results</h2>
+<br><br>`
 
-<div *ngFor="let restaurant of restaurants">
+<hr>
+
+<div class="container">
+  <div class="row">
+    <h3>Form Create Restaurant</h3>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+       
+        <div class="form-body">
+          <form autocomplete="off" [formGroup]="createForm" (ngSubmit)="onCreate(createForm.value)">
+            <div>
+              <label class="form-control">Name: </label>
+              <input class="form-control" type="text" formControlName="name" autocomplete="off" />
+            </div>
+            <div>
+              <label class="form-control">Description: </label>
+              <input class="form-control" type="text" formControlName="description" autocomplete="off" />
+            </div>
+            <div>
+              <label class="form-control">City: </label>
+              <input class="form-control" type="text" formControlName="city" autocomplete="off" />
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Submit</button>
+          </form>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<hr>
+
+<div class="container">
+  <h2>Actives</h2>
+  <div class="row" >
+    <div class="col-12 col-sm-6 col-md-6 col-xl-3" *ngFor="let restaurant of restaurants">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><b>City</b>: {{ restaurant.city }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"><b>Name</b>: {{ restaurant.name }}</h6>
+          <p class="card-text">Description: {{ restaurant.description }}.</p>
+          <a href="#" class="card-link">Edit</a>
+          <a href="#" class="card-link">Delete</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <div *ngFor="let restaurant of restaurants">
   <div><b>City</b>: {{ restaurant.city }}</div>
   <div><b>Name</b>: {{ restaurant.name }}</div>
   <div><b>Description</b>: {{ restaurant.description }}</div>
   <br>
-</div>
-
-
-
-
+</div> -->
