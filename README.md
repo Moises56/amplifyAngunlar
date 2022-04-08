@@ -1,5 +1,5 @@
 # AmplifyApp
-PROBAR `https://dev.d3mt9gvnxkw9yc.amplifyapp.com/`
+PROBAR [https://dev.d3mt9gvnxkw9yc.amplifyapp.com/]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
 
